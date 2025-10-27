@@ -1,0 +1,6 @@
+#include? "Pods/Target Support Files/Pods-Runner/Pods-Runner.debug.xcconfig"
+#include "Generated.xcconfig"
+
+ASSET_PREFIX=merschman
+BUNDLE_NAME=Merschman BoxIQ
+BUNDLE_DISPLAY_NAME=Merschman BoxIQ

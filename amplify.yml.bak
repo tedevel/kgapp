@@ -1,0 +1,30 @@
+version: 1
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - export BASE_HREF="${BASE_HREF:-/}"
+        - export CUSTOMER="${CUSTOMER:-nutrien}"
+        - export FLUTTER_TAG="${FLUTTER_TAG:-3.29.2}"
+
+        - rm -rf flutter || true
+
+        - git clone https://github.com/flutter/flutter.git --branch "$FLUTTER_TAG" --depth 1
+        - export PATH="$PATH:$(pwd)/flutter/bin"
+
+        - flutter config --enable-web --no-analytics
+        - flutter --version
+        - flutter precache --web
+        - flutter pub get
+    build:
+      commands:
+        - export PATH="$PATH:$(pwd)/flutter/bin"
+        - flutter build web --base-href "$BASE_HREF" --dart-define "APP_COMPANY=$CUSTOMER" --no-tree-shake-icons
+  artifacts:
+    baseDirectory: build/web
+    files:
+      - '**/*'
+  cache:
+    paths:
+      - $HOME/.pub-cache/**/*
+      - flutter/bin/**/*

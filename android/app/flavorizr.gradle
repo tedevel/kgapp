@@ -1,0 +1,26 @@
+android {
+    flavorDimensions += "company"
+
+    productFlavors {
+        sbs {
+            dimension "company"
+            applicationId "com.qptag.boxiq.sbs"
+            resValue "string", "app_name", "SBS BoxIQ"
+        }
+        merschman {
+            dimension "company"
+            applicationId "com.qptag.boxiq.merschman"
+            resValue "string", "app_name", "Merschman BoxIQ"
+        }
+        nutrien {
+            dimension "company"
+            applicationId "com.qptag.boxiq.nutrien"
+            resValue "string", "app_name", "Nutrien BoxIQ"
+        }
+        maintenance {
+            dimension "company"
+            applicationId "com.qptag.boxiq.maintenance"
+            resValue "string", "app_name", "Maintenance BoxIQ"
+        }
+    }
+}
