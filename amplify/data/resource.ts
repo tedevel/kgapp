@@ -43,7 +43,6 @@ const schema = a
         relatedExposureId: a.id(),
         notes: a.string(),
         tags: a.string().array(),
-        exposure: a.belongsTo('FoodExposure', 'relatedExposureId'),
       })
       .authorization((allow) => [
         allow.owner(),
@@ -63,8 +62,6 @@ const schema = a
         tags: a.string().array(),
         relatedExposureId: a.id(),
         relatedReactionId: a.id(),
-        exposure: a.belongsTo('FoodExposure', 'relatedExposureId'),
-        reaction: a.belongsTo('ReactionLog', 'relatedReactionId'),
       })
       .authorization((allow) => [
         allow.owner(),
